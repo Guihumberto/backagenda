@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.cotec.agenda.entities.Employee;
 
-public class EmployeeDTO implements Serializable {
+public class EmployeeMinDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
@@ -14,33 +14,27 @@ public class EmployeeDTO implements Serializable {
 	private Boolean wtzp;
 	private Boolean phoneTable;
 	
-	private PhoneDTO phone;
-	private SectorDTO sector;
-	
-	public EmployeeDTO() {
+	public EmployeeMinDTO() {
 	}
 
-	public EmployeeDTO(Long id, String name, String email, String cellphone, Boolean wtzp, Boolean phoneTable, 
-			SectorDTO sector, PhoneDTO phone) {
+	public EmployeeMinDTO(Long id, String name, String email, String cellphone, Boolean wtzp, Boolean phoneTable) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.cellphone = cellphone;
 		this.wtzp = wtzp;
 		this.phoneTable = phoneTable;
-		this.phone = phone;
-		this.sector = sector;
 	}
 	
-	public EmployeeDTO(Employee entity) {
-		id = entity.getId();
-		name = entity.getName();
-		email = entity.getEmail();
-		cellphone = entity.getCellphone();
-		wtzp = entity.getWtzp();
-		phoneTable = entity.getPhoneTable();
-		phone = new PhoneDTO(entity.getPhone());
-		sector = new SectorDTO(entity.getSector());
+	public EmployeeMinDTO(Employee entity) {
+		super();
+		this.id = entity.getId();
+		this.name = entity.getName();
+		this.email = entity.getEmail();
+		this.cellphone = entity.getCellphone();
+		this.wtzp = entity.getWtzp();
+		this.phoneTable = entity.getPhoneTable();
 	}
 
 	public Long getId() {
@@ -91,21 +85,4 @@ public class EmployeeDTO implements Serializable {
 		this.phoneTable = phoneTable;
 	}
 
-	public PhoneDTO getPhone() {
-		return phone;
-	}
-
-	public void setPhone(PhoneDTO phone) {
-		this.phone = phone;
-	}
-
-	public SectorDTO getSector() {
-		return sector;
-	}
-
-	public void setSector(SectorDTO sector) {
-		this.sector = sector;
-	}
-
-	
 }

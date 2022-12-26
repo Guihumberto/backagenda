@@ -25,36 +25,29 @@ public class Employee implements Serializable {
 	private Boolean wtzp;
 	private Boolean phoneTable;
 	
-	
-	
-	
-	
 	@ManyToOne
 	@JoinColumn(name = "phone_id")
-	private Phone idphone;
-	
-	
-	
-	
-	
-	
-	
+	private Phone phone;
 	
 	@ManyToOne
 	@JoinColumn(name = "sector_id")
-	private Sector idsector;
+	private Sector sector;
 	
 	public Employee() {
 	}
+	
+	
 
-	public Employee(Long id, String name, String email, String cellphone, Boolean wtzp, Boolean phoneTable) {
-		super();
+	public Employee(Long id, String name, String email, String cellphone, Boolean wtzp, Boolean phoneTable, Phone phone,
+			Sector sector) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.cellphone = cellphone;
 		this.wtzp = wtzp;
 		this.phoneTable = phoneTable;
+		this.phone = phone;
+		this.sector = sector;
 	}
 
 	public Long getId() {
@@ -105,21 +98,20 @@ public class Employee implements Serializable {
 		this.phoneTable = phoneTable;
 	}
 
-	public Phone getIdphone() {
-		return idphone;
-	}
-	
-	public void setIdphone(Phone idphone) {
-		this.idphone = idphone;
-	}
-	
-	
-	public Sector getIdsector() {
-		return idsector;
+	public Phone getPhone() {
+		return phone;
 	}
 
-	public void setIdsector(Sector idsector) {
-		this.idsector = idsector;
+	public void setPhone(Phone phone) {
+		this.phone = phone;
+	}
+
+	public Sector getSector() {
+		return sector;
+	}
+
+	public void setSector(Sector sector) {
+		this.sector = sector;
 	}
 
 	@Override
@@ -138,9 +130,5 @@ public class Employee implements Serializable {
 		Employee other = (Employee) obj;
 		return Objects.equals(id, other.id);
 	}
-
-
-	
-	
 
 }

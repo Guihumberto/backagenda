@@ -1,46 +1,38 @@
 package com.cotec.agenda.dto;
 
-import java.io.Serializable;
-
 import com.cotec.agenda.entities.Employee;
 
-public class EmployeeDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
+public class EmployeeNewDTO {
 	private Long id;
 	private String name;
 	private String email;
 	private String cellphone;
 	private Boolean wtzp;
 	private Boolean phoneTable;
+	private Long phoneId;
+	private Long SectorId;
 	
-	private PhoneDTO phone;
-	private SectorDTO sector;
-	
-	public EmployeeDTO() {
-	}
-
-	public EmployeeDTO(Long id, String name, String email, String cellphone, Boolean wtzp, Boolean phoneTable, 
-			SectorDTO sector, PhoneDTO phone) {
+	public EmployeeNewDTO(Long id, String name, String email, String cellphone, Boolean wtzp, Boolean phoneTable,
+			Long phoneId, Long sectorId) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.cellphone = cellphone;
 		this.wtzp = wtzp;
 		this.phoneTable = phoneTable;
-		this.phone = phone;
-		this.sector = sector;
+		this.phoneId = phoneId;
+		SectorId = sectorId;
 	}
 	
-	public EmployeeDTO(Employee entity) {
+	public EmployeeNewDTO(Employee entity) {
 		id = entity.getId();
 		name = entity.getName();
 		email = entity.getEmail();
 		cellphone = entity.getCellphone();
 		wtzp = entity.getWtzp();
 		phoneTable = entity.getPhoneTable();
-		phone = new PhoneDTO(entity.getPhone());
-		sector = new SectorDTO(entity.getSector());
+		phoneId = entity.getPhone().getId();
+		SectorId = entity.getSector().getId();
 	}
 
 	public Long getId() {
@@ -91,21 +83,21 @@ public class EmployeeDTO implements Serializable {
 		this.phoneTable = phoneTable;
 	}
 
-	public PhoneDTO getPhone() {
-		return phone;
+	public Long getPhoneId() {
+		return phoneId;
 	}
 
-	public void setPhone(PhoneDTO phone) {
-		this.phone = phone;
+	public void setPhoneId(Long phoneId) {
+		this.phoneId = phoneId;
 	}
 
-	public SectorDTO getSector() {
-		return sector;
+	public Long getSectorId() {
+		return SectorId;
 	}
 
-	public void setSector(SectorDTO sector) {
-		this.sector = sector;
+	public void setSectorId(Long sectorId) {
+		SectorId = sectorId;
 	}
-
+	
 	
 }

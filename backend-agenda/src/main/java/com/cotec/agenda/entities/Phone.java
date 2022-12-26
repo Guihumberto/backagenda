@@ -21,7 +21,7 @@ public class Phone implements Serializable {
 	private Long id;
 	private String phone;
 	
-	@OneToMany(mappedBy = "idphone")
+	@OneToMany(mappedBy = "phone")
 	private List<Employee> employee;
 	
 	public Phone() {

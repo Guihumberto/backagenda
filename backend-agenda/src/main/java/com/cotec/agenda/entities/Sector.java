@@ -23,23 +23,12 @@ public class Sector implements Serializable {
 	private Long id;
 	private String name;
 	
-	@OneToMany(mappedBy = "idsector")
+	@OneToMany(mappedBy = "sector")
 	private List<Employee> employee;
-	
-	
-	
-	
-	
 	
 	@ManyToOne
 	@JoinColumn(name = "local_id")
 	private Localization idlocal;
-	
-	
-	
-	
-	
-	
 	
 	public Sector() {
 	}
